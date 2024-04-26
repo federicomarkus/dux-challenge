@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="equipo_init" author="fmarkus">
+        <createTable tableName="equipo">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nombre" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="liga" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pais" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex indexName="equipo_nombre_index" tableName="equipo">
+            <column name="nombre"/>
+        </createIndex>
+
+        <sql>
+            INSERT INTO equipo (nombre, liga, pais) VALUES
+                                                            ('Real Madrid', 'La Liga', 'España'),
+                                                            ('FC Barcelona', 'La Liga', 'España'),
+                                                            ('Manchester United', 'Premier League', 'Inglaterra'),
+                                                            ('Liverpool FC', 'Premier League', 'Inglaterra'),
+                                                            ('Juventus FC', 'Serie A', 'Italia'),
+                                                            ('AC Milan', 'Serie A', 'Italia'),
+                                                            ('Bayern Munich', 'Bundesliga', 'Alemania'),
+                                                            ('Borussia Dortmund', 'Bundesliga', 'Alemania'),
+                                                            ('Paris Saint-Germain', 'Ligue 1', 'Francia'),
+                                                            ('Olympique de Marseille', 'Ligue 1', 'Francia'),
+                                                            ('FC Porto', 'Primeira Liga', 'Portugal'),
+                                                            ('Sporting CP', 'Primeira Liga', 'Portugal'),
+                                                            ('Ajax Amsterdam', 'Eredivisie', 'Países Bajos'),
+                                                            ('Feyenoord', 'Eredivisie', 'Países Bajos'),
+                                                            ('Celtic FC', 'Scottish Premiership', 'Escocia'),
+                                                            ('Rangers FC', 'Scottish Premiership', 'Escocia'),
+                                                            ('Galatasaray SK', 'Süper Lig', 'Turquía'),
+                                                            ('Fenerbahçe SK', 'Süper Lig', 'Turquía'),
+                                                            ('FC Zenit Saint Petersburg', 'Premier League Rusa', 'Rusia'),
+                                                            ('Spartak Moscow', 'Premier League Rusa', 'Rusia'),
+                                                            ('SL Benfica', 'Primeira Liga', 'Portugal'),
+                                                            ('Besiktas JK', 'Süper Lig', 'Turquía'),
+                                                            ('SSC Napoli', 'Serie A', 'Italia'),
+                                                            ('Atlético Madrid', 'La Liga', 'España');
+        </sql>
+
+    </changeSet>
+
+
+</databaseChangeLog>
